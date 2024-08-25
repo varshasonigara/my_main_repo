@@ -17,9 +17,11 @@ public class SinglyLinkedList {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4};
+        int arr[] = {1,2,3,4, 5, 6};
         Node head = convertArrToLinkedList(arr);
-        printLL(head);
+        Node head1 = oddEvenList(head);
+        printLL(head1);
+
     }
 
     private static Node insertNodeBeforeValue(Node head, int newValue, int value) {
@@ -128,6 +130,30 @@ public class SinglyLinkedList {
         }
         return found;
     }
+
+
+    public static Node oddEvenList(Node head) {
+        // empty or single
+        if (head == null || head.next == null)   return head;
+        Node odd = head;
+        Node even = head.next;
+        Node evenStart = even;
+
+        //even is always ahead of odd
+        while(even != null && even.next != null) {
+            odd.next = odd.next.next;;
+            odd = odd.next;
+
+            even.next = even.next.next;
+            even = even.next;
+        }
+
+        //connect the old and even, so remember evenHead
+        odd.next = evenStart;
+        return head;
+
+    }
+
 
     private static void printLL(Node head) {
         while(head != null) {
