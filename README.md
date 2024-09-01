@@ -3,3 +3,4 @@
 DSA
 - SinglyLinkedList
 - DoublyLinkedList
+- GRAPH (BFS, DFS)
