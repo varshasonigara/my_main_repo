@@ -1,5 +1,7 @@
 package DSA;
 
+import java.util.HashSet;
+
 public class SinglyLinkedList {
     static class Node {
         int data;
@@ -17,11 +19,28 @@ public class SinglyLinkedList {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4, 5, 6};
+        int arr[] = {7,4,7,8,5,5,5,9,5};
         Node head = convertArrToLinkedList(arr);
-        Node head1 = oddEvenList(head);
+        Node head1 = deleteDuplicatesFromUnsortedList(head);
         printLL(head1);
 
+    }
+
+    private static Node deleteDuplicatesFromUnsortedList(Node head) {
+        if(head == null || head.next == null) return head;
+        Node curr = head;
+        Node prev = null;
+        HashSet<Integer> set = new HashSet<>();
+        while(curr != null) {
+            if(set.contains(curr.data)) {
+                prev.next = curr.next;
+            } else {
+                set.add(curr.data);
+                prev = curr;
+            }
+            curr = curr.next;
+        }
+        return head;
     }
 
     private static Node insertNodeBeforeValue(Node head, int newValue, int value) {

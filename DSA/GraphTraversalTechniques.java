@@ -22,6 +22,7 @@ public class GraphTraversalTechniques {
         dfs(adjList, 1, vis); // 1 2 4 3 5 6 7
     }
 
+    // TC= O(2E)
     private static void dfs(List<List<Integer>> adjList, int startNode, int[] vis) {
         vis[startNode] = 1;
         System.out.print(startNode + " ");
@@ -32,6 +33,7 @@ public class GraphTraversalTechniques {
         }
     }
 
+    // TC = O(N) + O(2E)
     private static void bfs(List<List<Integer>> adjList, int startNode) {
         int[] vis = new int[adjList.size()];
         Queue<Integer> queue = new LinkedList<>();
