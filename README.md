@@ -1,6 +1,3 @@
 # my_main_repo
 
-DSA
-- SinglyLinkedList
-- DoublyLinkedList
-- GRAPH (BFS, DFS)
+Repo where i document my DSA learning journey.
