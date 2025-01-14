@@ -6,7 +6,37 @@ public class MoveZeros {
     public static void main(String[] args) {
         int[] arr = {4,2,4,0,0,3,0,5,1,0};
         //System.out.println(Arrays.toString(moveZerosToEnd(arr)));
-        System.out.println(Arrays.toString(moveZerosToEnd1(arr)));
+        //System.out.println(Arrays.toString(moveZerosToEnd1(arr)));
+        System.out.println(Arrays.toString(moveZerosToEnd2(arr)));
+    }
+
+    private static int[] moveZerosToEnd2(int[] arr) {
+        // MOve all zeros together and count them. Snowballs
+        // Loop through array, if zero increnement snowball, else swap with left most zero.
+        // O(N)
+        int snowball =0;
+        for(int i=0; i< arr.length; i++) {
+            if(arr[i] ==0) {
+                snowball++;
+            } else if(snowball > 0) {
+                int temp = arr[i];
+                arr[i] = arr[i-snowball];
+                arr[i-snowball] = temp;
+            }
+        }
+        return arr;
+
+        // what if move zeros to start
+//        int snowball =0;
+//        for(int i=arr.length-1; i>=0; i--) {
+//            if(arr[i] ==0) {
+//                snowball++;
+//            } else if(snowball > 0) {
+//                int temp = arr[i];
+//                arr[i] = arr[i+snowball];
+//                arr[i+snowball] = temp;
+//            }
+//        }
     }
 
     private static int[] moveZerosToEnd1(int[] arr) {

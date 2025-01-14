@@ -5,8 +5,21 @@ import java.util.Map;
 
 public class FirstRecurringCharacter {
     public static void main(String[] args) {
-        int[] arr = {2,5,1,2,3,5,1,2,4};
-        System.out.println(findFirstRecurring(arr));
+        int[] arr = {2,5,5,2,3,5,1,2,4};
+        System.out.println(findFirstRecurring1(arr));
+    }
+
+    private static int findFirstRecurring1(int[] arr) {
+        // O(N^2)
+        int lowestIndex = arr.length;
+        for (int i=0; i< arr.length; i++) {
+            for (int j=i+1; j< arr.length; j++) {
+                if(arr[i] == arr[j]) {
+                    lowestIndex = Math.min(lowestIndex, j);
+                }
+            }
+        }
+        return lowestIndex == arr.length ? -1: arr[lowestIndex];
     }
 
     private static int findFirstRecurring(int[] arr) {
