@@ -1,44 +1,44 @@
-package DSA;
+package DSA.stackandqueues;
 
 import java.util.ArrayList;
 
+
 public class Stack {
-    //static int capacity = 100;
-    int top;
-    //int arr[] = new int[capacity];
-    ArrayList<Integer> arr = new ArrayList<>();
+    private ArrayList<Integer> arr;
 
-    Stack(){
-        top=-1;
+    Stack() {
+        arr = new ArrayList<>();
     }
 
-    int push(int el) {
-        //if(top ==capacity-1) return -1;
-        top++;
-        arr.add(top, el);
-        return arr.get(top);
+    @Override
+    public String toString() {
+        return arr.toString();
     }
 
-    int pop() {
-        if(top ==-1) return -1;
-        int el = arr.get(top);
-        top--;
-        return el;
+    Stack push(int el) {
+        arr.add(el);
+        return this;
+    }
+
+    Stack pop() {
+        if (arr.size() == 0) return null;
+        arr.remove(arr.size() - 1);
+        return this;
     }
 
     int peek() {
-        if (top ==-1) return -1;
-        return arr.get(top);
+        if (arr.size() == 0) return -1;
+        return arr.get(arr.size() - 1);
     }
 
     boolean isEmpty() {
-        return top ==-1;
+        return arr.isEmpty();
     }
 
     public static void main(String args[]) {
         Stack stack = new Stack();
         System.out.println(stack.isEmpty());
-        System.out.println( stack.push(1));
+        System.out.println(stack.push(1));
         System.out.println(stack.push(2));
         System.out.println(stack.isEmpty());
         System.out.println(stack.peek());
