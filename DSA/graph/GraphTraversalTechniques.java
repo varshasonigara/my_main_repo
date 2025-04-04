@@ -1,4 +1,4 @@
-package DSA;
+package DSA.graph;
 
 import java.util.LinkedList;
 import java.util.List;
